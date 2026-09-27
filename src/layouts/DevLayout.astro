@@ -1,0 +1,112 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+}
+const {
+  title = 'Autional 开发者',
+  description = 'Autional 开发者门户 — 提供 SDK、快速开始指南、迁移手册与 API 参考，帮助你集成身份基础设施。',
+  keywords,
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const pathname = Astro.url.pathname;
+const ogImage = new URL('/og-default.png', Astro.site).href;
+const navigation = [
+  { href: '/', label: 'SDK' },
+  { href: '/quickstart', label: '快速开始' },
+  { href: '/migration', label: '迁移' },
+  { href: '/api', label: 'API' },
+];
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
+    <link rel="canonical" href={canonical.href} />
+    <link rel="icon" type="image/png" sizes="680x680" href="/favicon-master-blue-v7.png?v=7" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=7" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=7" />
+    <link rel="shortcut icon" type="image/png" href="/favicon-32x32.png?v=7" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=7" />
+    <link rel="manifest" href="/site.webmanifest?v=7" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical.href} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Autional 开发者" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:site" content="@autional" />
+    <meta name="twitter:creator" content="@autional" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'Autional 开发者',
+      url: 'https://developers.autional.cn',
+      description: '面向 Autional 身份平台的 SDK、快速开始指南与迁移手册。',
+      publisher: { '@type': 'Organization', name: 'Autional', url: 'https://www.autional.cn' },
+    })} />
+  </head>
+  <body class="min-h-screen text-neutral-900">
+    <div class="relative overflow-hidden">
+      <div class="absolute inset-x-0 top-0 -z-10 h-[34rem] bg-gradient-to-b from-sky-100/65 via-white/0 to-transparent"></div>
+      <header class="sticky top-0 z-50 border-b border-white/60 bg-white/80 backdrop-blur-xl">
+        <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-4 sm:px-6 lg:px-8">
+          <a href="/" class="flex items-center gap-4">
+            <img src="/logo-mark.svg" alt="Autional 徽标" class="h-10 w-10 object-contain" />
+            <div>
+              <div class="text-lg font-extrabold tracking-[-0.04em] text-primary-800">Autional</div>
+              <div class="text-xs font-medium uppercase tracking-[0.28em] text-neutral-400">开发者</div>
+            </div>
+          </a>
+          <div class="hidden items-center gap-5 md:flex">
+            <nav class="flex items-center gap-5">
+              {navigation.map((item) => (
+                <a href={item.href} class="developer-nav-link" data-active={pathname === item.href ? 'true' : 'false'}>{item.label}</a>
+              ))}
+            </nav>
+            <span class="w-px h-5 bg-neutral-200"></span>
+            <a href="https://docs.autional.cn" class="text-xs font-medium text-primary-500 hover:text-primary-700 transition">文档</a>
+            <a href="https://reference.autional.cn" class="text-xs font-medium text-primary-500 hover:text-primary-700 transition">API 参考</a>
+            <a href="https://wiki.autional.cn" class="text-xs font-medium text-primary-500 hover:text-primary-700 transition">API Wiki</a>
+            <a href="https://github.com/autional-cn/developer" class="text-xs font-medium text-primary-500 hover:text-primary-700 transition">GitHub</a>
+            <a href="https://www.autional.cn" class="brand-button-secondary px-4 py-2 text-xs">autional.cn</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="mx-auto max-w-7xl px-4 pb-20 pt-10 sm:px-6 lg:px-8">
+        <slot />
+      </main>
+
+      <footer class="border-t border-primary-100/80 bg-primary-900 text-white">
+        <div class="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-12 sm:px-6 lg:flex-row lg:items-start lg:justify-between lg:px-8">
+          <div class="max-w-md">
+            <div class="text-2xl font-extrabold tracking-[-0.04em]">Autional</div>
+            <p class="mt-4 text-sm leading-7 text-sky-100/80">
+              面向开发者的身份基础设施，提供 SDK、迁移指南、OpenAPI 参考，以及适配现代产品团队的集成路径。
+            </p>
+          </div>
+          <div class="grid gap-3 text-sm text-sky-100/80">
+            <p class="text-xs font-semibold uppercase tracking-wider text-sky-200/70 mb-1">门户</p>
+            <a href="https://docs.autional.cn" class="transition hover:text-white">文档</a>
+            <a href="https://reference.autional.cn" class="transition hover:text-white">API 参考</a>
+            <a href="https://wiki.autional.cn" class="transition hover:text-white">API Wiki</a>
+            <a href="https://www.autional.cn" class="transition hover:text-white">公司官网</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

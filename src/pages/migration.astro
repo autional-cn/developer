@@ -1,0 +1,37 @@
+---
+import DevLayout from '../layouts/DevLayout.astro';
+const steps = [
+  { from: 'Auth0', steps: ['创建 Autional 租户 → 将 Auth0 配置为 IdP', '导出 Auth0 规则 → 迁移到 Autional Actions', 'SDK 从 auth0-js 更换为 @autional-cn/core', '使用 Autional JWKS 端点验证令牌校验'], time: '1-2 天' },
+  { from: 'Clerk', steps: ['通过 Clerk API 导出用户 → 导入到 Autional 租户', '用 @autional-cn/react 组件替换 Clerk 组件', '将 Webhook 端点更新为 Autional 事件格式', '在 Autional 管理控制台验证 SSO + MFA 配置'], time: '2-3 天' },
+  { from: 'Firebase Auth', steps: ['从 Firebase 导出用户 → 通过 Autional 管理 API 导入', '用 @autional-cn/react 替换 Firebase SDK', '将自定义声明迁移为 Autional RBAC 角色', '在 Autional 中重新配置社交登录提供商'], time: '3-5 天' },
+  { from: 'Keycloak', steps: ['导出 Keycloak realm → Autional 租户配置', '通过 SCIM 2.0 协议同步用户', '将 Keycloak 角色映射到 Autional RBAC', '将应用 SDK 更新为 @autional-cn/\*'], time: '3-5 天' },
+];
+---
+<DevLayout title="迁移指南 — Autional 开发者" description="从 Auth0、Clerk、Firebase Auth 或 Keycloak 迁移到 Autional。提供分步说明的切换手册。">
+  <section class="text-center">
+    <span class="brand-kicker">迁移指南</span>
+    <h1 class="mt-6 text-5xl font-extrabold tracking-[-0.06em] text-primary-900 sm:text-6xl">从现有认证技术栈切换，全程可控。</h1>
+    <p class="mx-auto mt-6 max-w-3xl text-lg leading-8 text-neutral-600">
+      这些手册聚焦可落地的迁移工作：租户配置、用户导出与导入、SDK 替换、策略映射，以及最终验证。
+    </p>
+  </section>
+
+  <section class="mt-14 space-y-6">
+    {steps.map((s) => (
+      <div class="brand-card px-6 py-6">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <h2 class="text-2xl font-bold tracking-[-0.03em] text-primary-900">从 {s.from} 迁移</h2>
+          <span class="inline-flex rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-primary-700">预计 {s.time}</span>
+        </div>
+        <ol class="mt-6 space-y-3">
+          {s.steps.map((step, i) => (
+            <li class="flex items-start gap-3 text-sm leading-7 text-neutral-600">
+              <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary-700 text-xs font-bold text-white">{i + 1}</span>
+              <span>{step}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+    ))}
+  </section>
+</DevLayout>
