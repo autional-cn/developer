@@ -1,6 +1,6 @@
 # Autional Developer Portal
 
-**Domain**: developers.autional.cn
+**Domain**: developer.autional.cn
 **Stack**: Astro 5 + Tailwind 3.4
 **Repository**: [github.com/autional-cn/developer](https://github.com/autional-cn/developer)
 
