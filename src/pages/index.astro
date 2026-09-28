@@ -29,7 +29,7 @@ const highlights = [
   <section class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
     <div>
       <span class="brand-kicker">开发者平台</span>
-      {/* 此前是 leading-[1.05] tracking-[-0.06em] —— 全部是站点自己发明的字距/行高。
+      {/* 此前是 leading-[var(--line-height-display-xl)] sm:leading-[var(--line-height-display-xl)] tracking-[var(--letter-spacing-display-xl)] —— 全部是站点自己发明的字距/行高。
     -0.06em 在 48px 的中文标题上等于每字收紧 2.88px（-6%），中文字身带边距，
     收紧到这个程度会明显挤在一起；这正是 U66 第③项说的「display 字距对 CJK 过紧」
     ——设计系统里早已修到 -0.02em，但**站点里还留着旧值**（上一轮我只查了 ui/ 仓，
@@ -84,7 +84,7 @@ const highlights = [
     <div class="flex items-end justify-between gap-4">
       <div>
         <span class="brand-kicker">框架 SDK</span>
-        <h2 class="mt-4 text-3xl font-bold tracking-[-0.04em] text-primary-900">选择与你的运行时匹配的软件包。</h2>
+        <h2 class="mt-4 text-3xl font-bold tracking-[var(--letter-spacing-display-lg)] text-primary-900">选择与你的运行时匹配的软件包。</h2>
       </div>
       <a href="/migration" class="hidden text-sm font-semibold text-primary-700 md:inline-flex">查看迁移指南</a>
     </div>
@@ -104,7 +104,7 @@ const highlights = [
   <section class="mt-16 grid gap-10 lg:grid-cols-[0.78fr_1.22fr]">
     <div class="brand-card px-6 py-7">
       <span class="brand-kicker">使用方式</span>
-      <h2 class="mt-4 text-3xl font-bold tracking-[-0.04em] text-primary-900">一套软件包体系，多种部署路径。</h2>
+      <h2 class="mt-4 text-3xl font-bold tracking-[var(--letter-spacing-display-lg)] text-primary-900">一套软件包体系，多种部署路径。</h2>
       <p class="mt-4 text-sm leading-7 text-neutral-600">
         安装框架包即可完成 UI 集成；需要更精细的控制时，搭配自动生成的 API 客户端；从现有认证服务商迁移时，可随时查阅迁移指南。
       </p>
@@ -125,7 +125,7 @@ const highlights = [
       <div class="flex items-center justify-between gap-4">
         <div>
           <span class="brand-kicker">生成的客户端</span>
-          <h2 class="mt-4 text-3xl font-bold tracking-[-0.04em] text-primary-900">让每个服务都进入同一套开发者工作流。</h2>
+          <h2 class="mt-4 text-3xl font-bold tracking-[var(--letter-spacing-display-lg)] text-primary-900">让每个服务都进入同一套开发者工作流。</h2>
         </div>
         <span class="hidden rounded-full bg-primary-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary-700 md:inline-flex">OpenAPI 已同步</span>
       </div>
@@ -141,7 +141,7 @@ const highlights = [
 
   <section class="mt-16 brand-shell px-6 py-10 text-center sm:px-10">
     <span class="brand-kicker">准备交付</span>
-    <h2 class="mt-5 text-3xl font-bold tracking-[-0.04em] text-primary-900 sm:text-4xl">一次安装，让认证在应用、API 与租户边界之间保持一致。</h2>
+    <h2 class="mt-5 text-3xl font-bold tracking-[var(--letter-spacing-display-lg)] text-primary-900 sm:text-4xl">一次安装，让认证在应用、API 与租户边界之间保持一致。</h2>
     <p class="mx-auto mt-4 max-w-2xl text-base leading-8 text-neutral-600">
       从框架 SDK 开始；需要服务级控制时，改用生成的客户端；企业级切换时，可随时查阅迁移指南。
     </p>

@@ -10,7 +10,7 @@ const steps = [
 <DevLayout title="迁移指南 — Autional 开发者" description="从 Auth0、Clerk、Firebase Auth 或 Keycloak 迁移到 Autional。提供分步说明的切换手册。">
   <section class="text-center">
     <span class="brand-kicker">迁移指南</span>
-    <h1 class="mt-6 text-5xl font-extrabold tracking-[-0.06em] text-primary-900 sm:text-6xl">从现有认证技术栈切换，全程可控。</h1>
+    <h1 class="mt-6 text-5xl font-extrabold tracking-[var(--letter-spacing-display-xl)] text-primary-900 sm:text-6xl">从现有认证技术栈切换，全程可控。</h1>
     <p class="mx-auto mt-6 max-w-3xl text-lg leading-8 text-neutral-600">
       这些手册聚焦可落地的迁移工作：租户配置、用户导出与导入、SDK 替换、策略映射，以及最终验证。
     </p>
@@ -20,7 +20,7 @@ const steps = [
     {steps.map((s) => (
       <div class="brand-card px-6 py-6">
         <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <h2 class="text-2xl font-bold tracking-[-0.03em] text-primary-900">从 {s.from} 迁移</h2>
+          <h2 class="text-2xl font-bold tracking-[var(--letter-spacing-heading-lg)] text-primary-900">从 {s.from} 迁移</h2>
           <span class="inline-flex rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-primary-700">预计 {s.time}</span>
         </div>
         <ol class="mt-6 space-y-3">
