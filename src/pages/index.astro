@@ -29,7 +29,12 @@ const highlights = [
   <section class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
     <div>
       <span class="brand-kicker">开发者平台</span>
-      <h1 class="mt-6 max-w-3xl text-5xl font-extrabold leading-[1.05] tracking-[-0.06em] text-primary-900 sm:text-6xl">
+      {/* 此前是 leading-[1.05] tracking-[-0.06em] —— 全部是站点自己发明的字距/行高。
+    -0.06em 在 48px 的中文标题上等于每字收紧 2.88px（-6%），中文字身带边距，
+    收紧到这个程度会明显挤在一起；这正是 U66 第③项说的「display 字距对 CJK 过紧」
+    ——设计系统里早已修到 -0.02em，但**站点里还留着旧值**（上一轮我只查了 ui/ 仓，
+    没查站点，所以漏了）。改为消费设计系统的排版令牌。 */}
+<h1 class="mt-6 max-w-3xl text-5xl font-extrabold leading-[var(--line-height-display-xl)] sm:leading-[var(--line-height-display-xl)] tracking-[var(--letter-spacing-display-xl)] text-primary-900 sm:text-6xl">
         用生产级 SDK 与 API 客户端，更快交付身份能力。
       </h1>
       <p class="mt-6 max-w-2xl text-lg leading-8 text-neutral-600">
@@ -42,7 +47,7 @@ const highlights = [
       <div class="mt-10 grid max-w-2xl gap-4 sm:grid-cols-3">
         {highlights.map((item) => (
           <div class="brand-card px-5 py-5">
-            <div class="text-2xl font-extrabold tracking-[-0.05em] text-primary-800">{item.value}</div>
+            <div class="text-2xl font-extrabold tracking-[var(--letter-spacing-display-lg)] text-primary-800">{item.value}</div>
             <div class="mt-2 text-sm text-neutral-500">{item.label}</div>
           </div>
         ))}
