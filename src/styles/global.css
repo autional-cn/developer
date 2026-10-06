@@ -25,3 +25,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* AA 修复（ui verify 对比度闸门，2026-10-07）：.developer-nav-link 默认色 neutral-500(#8896a6)
+   对白底 3.02:1 < 正文门槛 4.5:1（移动菜单展开路径实测）。与组件规则同层且置于其后，
+   同特异性下按序覆盖；hover / data-active 规则特异性更高（0,2,0），不受影响。 */
+@layer components {
+  .developer-nav-link {
+    color: var(--color-neutral-600);
+  }
+}
