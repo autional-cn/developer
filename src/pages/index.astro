@@ -77,7 +77,7 @@ const highlights = [
             <code class="text-sm font-semibold text-primary-700">{p.name}</code>
             <p class="mt-2 text-sm leading-7 text-neutral-600">{p.desc}</p>
           </div>
-          <code class="inline-flex max-w-full overflow-x-auto rounded-2xl bg-slate-950 px-4 py-3 text-xs leading-6 text-slate-100 lg:max-w-[28rem]">{p.install}</code>
+          <code class="inline-flex max-w-full overflow-x-auto rounded-md bg-slate-950 px-4 py-3 text-xs leading-6 text-slate-100 lg:max-w-[28rem]">{p.install}</code>
         </div>
       ))}
     </div>
@@ -91,13 +91,13 @@ const highlights = [
         安装 React SDK 即可完成应用集成；需要更精细的控制时，直接调用 REST 端点（见 API 参考）；从现有认证服务商迁移时，可随时查阅迁移路径。
       </p>
       <div class="mt-6 space-y-3 text-sm text-neutral-600">
-        <div class="rounded-2xl border border-primary-100 bg-primary-50/80 px-4 py-3">
+        <div class="rounded-md border border-primary-100 bg-primary-50/80 px-4 py-3">
           <strong class="text-primary-800">快速上手：</strong>安装 SDK，在组件中接入认证 hooks。
         </div>
-        <div class="rounded-2xl border border-sky-100 bg-sky-50/80 px-4 py-3">
+        <div class="rounded-md border border-sky-100 bg-sky-50/80 px-4 py-3">
           <strong class="text-primary-800">深度集成：</strong>直接调用 REST 端点，端点总览见网关文档。
         </div>
-        <div class="rounded-2xl border border-amber-100 bg-amber-50/80 px-4 py-3">
+        <div class="rounded-md border border-amber-100 bg-amber-50/80 px-4 py-3">
           <strong class="text-primary-800">企业级落地：</strong>使用迁移路径与租户感知的配置。
         </div>
       </div>
@@ -113,7 +113,7 @@ const highlights = [
       </div>
       <div class="mt-8 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
         {API_CLIENTS.map((a) => (
-          <div class="rounded-2xl border border-primary-100/80 bg-white px-4 py-4 shadow-soft">
+          <div class="rounded-md border border-primary-100/80 bg-white px-4 py-4 shadow-soft">
             <code class="text-xs text-primary-700">@autional/{a}</code>
           </div>
         ))}
