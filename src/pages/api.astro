@@ -2,17 +2,17 @@
 import DevLayout from '../layouts/DevLayout.astro';
 
 const endpoints = [
-  ['网关文档', 'https://reference.autional.cn/', '由网关提供的交互式 OpenAPI 界面。'],
-  ['网关规范', 'https://reference.autional.cn/openapi.json', '供客户端工具使用与契约检查的聚合 JSON 规范。'],
-  ['原始规范', 'https://reference.autional.cn/', '覆盖全部 24 个微服务的交互式 OpenAPI 规范浏览器。'],
+  ['网关文档', 'https://reference.autional.cn/', '在浏览器中浏览全部 REST 端点与数据模型，由网关聚合提供交互式文档。'],
+  ['服务规范', 'https://reference.autional.cn/specs/identity-service.json', '27 个微服务各自发布 OpenAPI 规范 JSON，可下载用于客户端生成与契约检查；地址形如 /specs/<服务名>-service.json。'],
+  ['SDK 源码', 'https://github.com/autional-cn', 'SDK 与前端项目的源码位于 GitHub 上的 autional-cn 组织。'],
 ];
 ---
-<DevLayout title="API 参考 — Autional 开发者" description="面向开发者的 Autional API 参考 — 一个开发者入口背后汇聚 1,400+ REST 端点。通过网关提供交互式 Swagger 文档。">
+<DevLayout title="API 参考 — Autional 开发者" description="面向开发者的 Autional API 参考 — 汇聚 27 个微服务的 1,400+ REST 端点，提供交互式文档与按服务划分的 OpenAPI 规范。">
   <section class="text-center">
     <span class="brand-kicker">API 概览</span>
     <h1 class="mt-6 text-5xl font-extrabold tracking-[var(--letter-spacing-display-xl)] text-primary-900 sm:text-6xl">一个开发者入口，汇聚 1,400+ REST 端点。</h1>
     <p class="page-lead mx-auto mt-6">
-      通过网关查看实时 Swagger 文档，为工具链拉取聚合规范，或直接从源码仓库审计各服务的原始契约。
+      在浏览器中浏览交互式 API 文档，下载各服务的 OpenAPI 规范用于客户端生成与契约检查，或从 GitHub 获取 SDK 与前端项目源码。
     </p>
   </section>
 
@@ -21,7 +21,7 @@ const endpoints = [
       <div class="brand-card px-6 py-6">
         <h2 class="text-xl font-semibold text-primary-900">{name}</h2>
         <p class="mt-3 text-sm leading-7 text-neutral-600">{description}</p>
-        <pre class="developer-code mt-5">{url}</pre>
+        <pre class="developer-code mt-5"><a href={url} class="underline">{url}</a></pre>
       </div>
     ))}
   </section>
@@ -34,10 +34,10 @@ const endpoints = [
       </div>
       <div class="space-y-4 text-sm leading-7 text-neutral-600">
         <div class="rounded-2xl border border-primary-100 bg-white px-4 py-4">
-          <strong class="text-primary-800">集成时：</strong>需要快速发现接口并导入客户端时，使用网关的聚合文档。
+          <strong class="text-primary-800">集成时：</strong>需要快速发现接口时，使用网关的交互式文档。
         </div>
         <div class="rounded-2xl border border-sky-100 bg-sky-50/80 px-4 py-4">
-          <strong class="text-primary-800">调试时：</strong>需要精确路径、schema 或契约历史时，直接查看具体服务的规范。
+          <strong class="text-primary-800">调试时：</strong>需要精确路径或 schema 时，直接查看具体服务的 OpenAPI 规范。
         </div>
       </div>
     </div>

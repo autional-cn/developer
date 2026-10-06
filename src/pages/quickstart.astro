@@ -2,7 +2,7 @@
 import DevLayout from '../layouts/DevLayout.astro';
 
 const prerequisites = [
-  '一套运行中的 Autional 环境，可以是本地 Docker 或云端。',
+  '一套运行中的 Autional 环境（自托管：本地 Docker 启动；云托管在路线图中）。',
   '已准备好接入 SDK 的应用源代码。',
   '一个 AI 编程助手，例如 Cursor、Claude Code 或其他能力相当的 LLM。',
 ];
@@ -11,21 +11,21 @@ const steps = [
   {
     title: '启动平台',
     copy: '启动本地 Autional 栈，让助手能够注册租户、查看 API，并针对真实环境验证最终流程。',
-    command: `# See docs.autional.cn for platform setup instructions
+    command: `# 完整部署步骤见 https://docs.autional.cn/deployment/
 docker compose -f docker-compose.infra.yml -f docker-compose.monolith.yml up -d`,
   },
   {
-    title: '把迁移提示词交给助手',
+    title: '把接入提示词交给助手',
     copy: '使用结构化的提示词，让助手能够分析项目、选择合适的 SDK 包，并完成可验证的集成。',
-    command: `Use the Autional SDK Migration Skill to add multi-user authentication to my project.
-Follow the 8-phase process: analyze -> recommend -> register -> install -> code -> test -> verify -> finalize.
-Phase 3 (tenant registration): use invitation code AUTHMS-DEV-001.`,
+    command: `请读取 https://www.autional.cn/ai/skill.md，并据此为当前项目接入 Autional 登录。
+若打不开，改用国内镜像：
+https://cdn.autional.cn/ai/latest/SKILL.md`,
   },
   {
     title: '检查与验证',
     copy: '代码生成后，先验证租户注册、代理规则与端到端认证行为，再把改动交付给团队。',
     command: `curl http://localhost:11080/health
-open http://localhost:11080/docs/
+# 在浏览器打开 http://localhost:11080/docs/
 npm test`,
   },
 ];
@@ -45,7 +45,7 @@ const issues = [
   ['缺少 appId', '把 appId 设为任意非空标识符，例如当前项目名。'],
 ];
 ---
-<DevLayout title="快速开始 — Autional 开发者" description="为你的应用接入 Autional 认证 — 面向 React、Vue 与 Next.js 的 AI 辅助快速开始，几分钟即可完成。">
+<DevLayout title="快速开始 — Autional 开发者" description="为你的应用接入 Autional 认证 — AI 辅助快速开始：启动平台、把接入提示词交给助手、针对真实 API 验证结果。">
   <section class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
     <div>
       <span class="brand-kicker">快速开始</span>
@@ -53,11 +53,11 @@ const issues = [
         在一次引导式操作中，为现有应用接入认证。
       </h1>
       <p class="mt-6 page-lead">
-        本快速开始面向采用 AI 辅助集成的团队：启动 Autional 栈，把结构化的迁移提示词交给助手，然后针对真实 API 而非模拟流程验证结果。
+        本快速开始面向采用 AI 辅助集成的团队：启动 Autional 栈，把结构化的接入提示词交给助手，然后针对真实 API 而非模拟流程验证结果。
       </p>
       <div class="mt-8 flex flex-wrap gap-3">
         <a href="/" class="brand-button-primary">浏览 SDK 包</a>
-        <a href="/migration" class="brand-button-secondary">查看迁移指南</a>
+        <a href="/migration" class="brand-button-secondary">查看迁移路径</a>
       </div>
     </div>
 
@@ -82,7 +82,7 @@ const issues = [
       <span class="brand-kicker">三个步骤</span>
       <h2 class="mt-4 page-heading">从零集成到可验证的认证流程。</h2>
     </div>
-    <div class="mt-8 grid gap-5 lg:grid-cols-3">
+    <div class="mt-8 grid grid-cols-1 gap-5 lg:grid-cols-3">
       {steps.map((step, index) => (
         <div class="brand-card px-6 py-6">
           <div class="flex items-center gap-3">
