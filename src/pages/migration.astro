@@ -1,10 +1,10 @@
 ---
 import DevLayout from '../layouts/DevLayout.astro';
 const steps = [
-  { from: 'Auth0', steps: ['创建 Autional 租户 → 将 Auth0 配置为 IdP', '导出 Auth0 规则 → 用 Autional RBAC 角色与策略重建', '将 SDK 从 auth0-js 更换为 @autional-cn/react', '使用 Autional JWKS 端点验证令牌校验'], time: '1-2 天' },
-  { from: 'Clerk', steps: ['通过 Clerk API 导出用户 → 导入到 Autional 租户', '用 @autional-cn/react 组件替换 Clerk 组件', '将 Webhook 端点更新为 Autional 事件格式', '在 Autional 管理控制台验证 SSO + MFA 配置'], time: '2-3 天' },
-  { from: 'Firebase Auth', steps: ['从 Firebase 导出用户 → 通过 Autional 管理 API 导入', '用 @autional-cn/react 替换 Firebase SDK', '将自定义声明迁移为 Autional RBAC 角色', '在 Autional 中重新配置社交登录提供商'], time: '3-5 天' },
-  { from: 'Keycloak', steps: ['导出 Keycloak realm → Autional 租户配置', '通过 SCIM 2.0 协议同步用户', '将 Keycloak 角色映射到 Autional RBAC', '将应用 SDK 更新为 @autional-cn/react'], time: '3-5 天' },
+  { from: 'Auth0', steps: ['创建 Autional 租户 → 将 Auth0 配置为 IdP', '导出 Auth0 规则 → 用 Autional RBAC 角色与策略重建', '将 SDK 从 auth0-js 更换为 @autional/react', '使用 Autional JWKS 端点验证令牌校验'], time: '1-2 天' },
+  { from: 'Clerk', steps: ['通过 Clerk API 导出用户 → 导入到 Autional 租户', '用 @autional/react 组件替换 Clerk 组件', '将 Webhook 端点更新为 Autional 事件格式', '在 Autional 管理控制台验证 SSO + MFA 配置'], time: '2-3 天' },
+  { from: 'Firebase Auth', steps: ['从 Firebase 导出用户 → 通过 Autional 管理 API 导入', '用 @autional/react 替换 Firebase SDK', '将自定义声明迁移为 Autional RBAC 角色', '在 Autional 中重新配置社交登录提供商'], time: '3-5 天' },
+  { from: 'Keycloak', steps: ['导出 Keycloak realm → Autional 租户配置', '通过 SCIM 2.0 协议同步用户', '将 Keycloak 角色映射到 Autional RBAC', '将应用 SDK 更新为 @autional/react'], time: '3-5 天' },
 ];
 ---
 <DevLayout title="迁移路径 — Autional 开发者" description="从 Auth0、Clerk、Firebase Auth 或 Keycloak 迁移到 Autional 的路径概览与分步操作要点。">
