@@ -46,11 +46,10 @@ const highlights = [
       <pre class="developer-code mt-5">
 <span class="text-primary-200">$</span> <span class="text-amber-300">npm</span> <span class="text-slate-100">install</span> <span class="text-sky-300">@autional/react</span>
 
-<span class="text-violet-300">import</span> <span class="text-slate-100">&#123; useAuth, useLogin &#125;</span> <span class="text-violet-300">from</span> <span class="text-emerald-300">'@autional/react'</span>;
+<span class="text-violet-300">import</span> <span class="text-slate-100">&#123; useAutional &#125;</span> <span class="text-violet-300">from</span> <span class="text-emerald-300">'@autional/react'</span>;
 
 <span class="text-violet-300">function</span> <span class="text-amber-300">App</span><span class="text-slate-200">()</span> <span class="text-slate-200">&#123;</span>
-  <span class="text-violet-300">const</span> <span class="text-slate-100">&#123; isAuthenticated &#125;</span> <span class="text-slate-200">=</span> <span class="text-sky-300">useAuth</span><span class="text-slate-200">()</span>;
-  <span class="text-violet-300">const</span> <span class="text-slate-100">&#123; login &#125;</span> <span class="text-slate-200">=</span> <span class="text-sky-300">useLogin</span><span class="text-slate-200">()</span>;
+  <span class="text-violet-300">const</span> <span class="text-slate-100">&#123; isAuthenticated, login &#125;</span> <span class="text-slate-200">=</span> <span class="text-sky-300">useAutional</span><span class="text-slate-200">()</span>;
 <span class="text-slate-200">&#125;</span>
       </pre>
       <div class="mt-6 flex flex-wrap gap-2">
