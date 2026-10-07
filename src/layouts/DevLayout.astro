@@ -94,7 +94,7 @@ const navigation = [
                 <line x1="4" y1="17" x2="20" y2="17"></line>
               </svg>
             </summary>
-            <div class="absolute right-0 top-[calc(100%+0.5rem)] z-50 w-64 rounded-md border border-neutral-100 bg-white px-4 py-4 shadow-brand">
+            <div class="absolute right-0 top-[calc(100%+var(--space-2))] z-50 w-64 rounded-md border border-neutral-100 bg-white px-4 py-4 shadow-brand">
               <nav class="grid gap-1">
                 {navigation.map((item) => (
                   <a href={item.href} class="developer-nav-link py-2" data-active={pathname === item.href ? 'true' : 'false'}>{item.label}</a>
