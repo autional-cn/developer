@@ -1,3 +1,5 @@
+> **本仓库已归档**（只读）：源码与后续开发已迁移至 [github.com/autional/developer](https://github.com/autional/developer)；线上服务见 [developer.autional.cn](https://developer.autional.cn)。
+
 # Autional Developer Portal
 
 **Domain**: developer.autional.cn
